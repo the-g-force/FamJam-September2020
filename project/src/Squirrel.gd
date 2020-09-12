@@ -8,6 +8,7 @@ export var speedmod := 1.1
 var _base_speed : float
 var _velocity := Vector2.ZERO
 var _spin := 0.0
+var on_ground := false
 
 
 onready var _hit_wall := $Wall
@@ -23,7 +24,6 @@ func _ready():
 
 func _process(delta):
 	rotation += _spin * delta
-	
 	var collision := move_and_collide(_velocity * delta * speed)
 	if collision:
 		_velocity = _velocity.bounce(collision.normal)
@@ -31,16 +31,21 @@ func _process(delta):
 		if collision.collider is Collectable:
 			collision.collider.hit()
 			_hit_nut.play()
-		if collision.collider is Trampoline and speed < max_speed:
+		if collision.collider.name == "Trampoline" and speed < max_speed:
 			speed *= speedmod
 			emit_signal("reset_combo")
 			_hit_trampoline.play()
 		if collision.collider is Birdfeeder:
 			collision.collider.hit()
 			_hit_birdfeeder.play()
+		if collision.collider.name == "Bottomzone":
+			_velocity = Vector2.ZERO
+			on_ground = true
+			speed = _base_speed
+			emit_signal("reset_combo")
+			stop()
 		else:
 			_hit_wall.play()
-	update()
 
 
 # Can be called when the game is over and the squirrel should stop in-place.

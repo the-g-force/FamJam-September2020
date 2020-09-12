@@ -17,7 +17,13 @@ func _process(delta):
 	if Input.is_action_pressed("move_right"):
 		direction.x += 1
 	direction = direction.normalized()
-	var _ignored_result := move_and_collide(direction * speed * delta)
+	var collision := move_and_collide(direction * speed * delta)
+	if collision:
+		if collision.collider is Squirrel:
+			var _squirrel = collision.collider
+			if _squirrel.on_ground:
+				_squirrel.global_position.y -= 50
+				_squirrel.start()
 	
 	# Handle touch input.
 	if _is_touch_down:
