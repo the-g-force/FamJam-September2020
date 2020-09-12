@@ -200,13 +200,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="MainMenuButton" type="Button" parent="UI/GameOverUI"]
-margin_top = 65.0
-margin_right = 323.0
-margin_bottom = 104.0
-custom_fonts/font = ExtResource( 8 )
-text = "Main Menu"
-
 [node name="GameOverLabel" type="Label" parent="UI/GameOverUI"]
 margin_right = 323.0
 margin_bottom = 33.0
@@ -216,6 +209,13 @@ align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="MainMenuButton" type="Button" parent="UI/GameOverUI"]
+margin_top = 65.0
+margin_right = 323.0
+margin_bottom = 104.0
+custom_fonts/font = ExtResource( 8 )
+text = "Main Menu"
 
 [node name="Bottomzone" type="StaticBody2D" parent="."]
 
