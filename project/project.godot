@@ -42,6 +42,10 @@ config/name="FamJam-September2020"
 run/main_scene="res://src/TestLevel.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Jukebox="*res://src/Jukebox.tscn"
+
 [display]
 
 window/size/width=600

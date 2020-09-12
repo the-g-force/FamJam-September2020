@@ -14,6 +14,7 @@ var _total_nuts := 0
 var combo := 0
 
 func _ready():
+	Jukebox.play()
 	var nuts:Array = _collectables.get_children()
 	for item in nuts:
 		if item is Collectable:

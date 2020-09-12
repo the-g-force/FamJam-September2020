@@ -2,3 +2,6 @@
 build
 .directory
 project/.import
+
+# LMMS Backup files
+*mmpz.bak
