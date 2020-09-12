@@ -9,6 +9,8 @@ export var speed := 200.0
 var _is_touch_down := false
 var _touch_position : Vector2
 
+onready var Y_POSITION := position.y
+
 func _process(delta):
 	# Handle keyboard input
 	var direction := Vector2.ZERO
@@ -24,12 +26,14 @@ func _process(delta):
 			if _squirrel.on_ground:
 				_squirrel.global_position.y -= 50
 				_squirrel.start()
+			# Always reset Y location, since it can get bobbled on a collision
+			position = Vector2(position.x, Y_POSITION)
+				
 	
 	# Handle touch input.
 	if _is_touch_down:
 		global_position = Vector2(_touch_position.x, global_position.y)
 		
-
 	
 
 
