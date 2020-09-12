@@ -1,5 +1,8 @@
 extends Control
 
+# The number of seconds a regular game lasts at level 1
+export var base_duration := 20
+
 onready var _squirrel := $Squirrel
 onready var _trampoline := $Trampoline
 onready var _collectables := $Collectables
@@ -14,6 +17,9 @@ var _total_nuts := 0
 var combo := 1
 
 func _ready():
+	# Determine how long we have to complete this level
+	_game_timer.wait_time = base_duration - (GameStats.level-1) * 2
+	
 	Jukebox.play_gamplay_song()
 	var nuts:Array = _collectables.get_children()
 	for item in nuts:
@@ -76,5 +82,5 @@ func _on_Squirrel_reset_combo():
 
 
 func _on_NextLevelButton_pressed():
-	# For now, just reload this level
+	GameStats.level += 1
 	var _ignored = get_tree().change_scene("res://src/TestLevel.tscn")
