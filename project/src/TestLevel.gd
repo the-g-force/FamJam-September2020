@@ -1,6 +1,7 @@
 extends Control
 
 onready var _squirrel := $Squirrel
+onready var _trampoline := $Trampoline
 onready var _game_timer := $GameTimer
 onready var _game_timer_label := $GameTimerLabel
 onready var _game_over_label := $GameOverLabel
@@ -26,6 +27,8 @@ func _process(_delta):
 	_combo_label.text = str(combo)
 	if game_started and _total_nuts == 0:
 		_game_over()
+	elif not game_started:
+		_squirrel.global_position.x = _trampoline.global_position.x
 	
 
 # Start the level (launch squirrel, start timer, etc)
