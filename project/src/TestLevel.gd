@@ -25,10 +25,12 @@ func _ready():
 	
 	Jukebox.play_gamplay_song()
 	var nuts:Array = _collectables.get_children()
+	var nut_type := randi()%2
 	for item in nuts:
 		if item is Collectable:
 			item.connect("hit", self, "_collected_nut")
 			_total_nuts += 1
+			item.sprite.play(str(nut_type))
 		elif item is Birdfeeder:
 			item.connect("hit", self, "_hit_birdfeeder")
 
@@ -97,4 +99,5 @@ func _on_NextLevelButton_pressed():
 
 
 func _on_MainMenuButton_pressed():
+	GameStats.reset()
 	var _ignored = get_tree().change_scene("res://src/screens/MenuScreen.tscn")
