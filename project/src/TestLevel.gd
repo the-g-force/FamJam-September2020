@@ -23,7 +23,7 @@ func _ready():
 	# Determine how long we have to complete this level
 	_game_timer.wait_time = base_duration - (GameStats.level-1) * 2
 	
-	Jukebox.play_gamplay_song()
+	Jukebox.play_gameplay_song()
 	var nuts:Array = _collectables.get_children()
 	var nut_type := randi()%2
 	for item in nuts:

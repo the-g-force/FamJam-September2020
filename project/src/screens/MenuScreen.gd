@@ -1,5 +1,7 @@
 extends Control
 
+func _ready():
+	Jukebox.play_menu_song()
 
 func _on_PlayButton_pressed():
 	var _ignored = get_tree().change_scene("res://src/TestLevel.tscn")
