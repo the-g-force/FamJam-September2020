@@ -16,6 +16,9 @@ onready var _level_complete_ui := $UI/LevelCompleteUI
 onready var _score_label := $UI/Top/ScoreLabel
 onready var _combo_label := $UI/Top/ComboLabel
 
+onready var _game_over_ui := $UI/GameOverUI
+onready var _game_over_label := $UI/GameOverUI/GameOverLabel
+
 func _ready():
 	# Determine how long we have to complete this level
 	_game_timer.wait_time = base_duration - (GameStats.level-1) * 2
@@ -37,7 +40,7 @@ func _process(_delta):
 	_score_label.text = str(GameStats.score)
 	_combo_label.text = str(combo) + "X"
 	if _game_started and _total_nuts == 0:
-		_game_over()
+		_handle_level_clear()
 	elif not _game_started:
 		_squirrel.global_position.x = _trampoline.global_position.x
 	
@@ -52,10 +55,17 @@ func _on_GameTimer_timeout():
 	_game_over()
 
 
+func _handle_level_clear():
+	_game_timer.set_paused(true)
+	_squirrel.stop()
+	_level_complete_ui.visible = true	
+
+
 func _game_over():
 	_game_timer.set_paused(true)
-	_level_complete_ui.visible = true
 	_squirrel.stop()
+	_game_over_label.text = "Winter is here!\n\nScore: %d" % GameStats.score
+	_game_over_ui.visible = true
 
 
 func _input(event):
@@ -84,3 +94,7 @@ func _on_Squirrel_reset_combo():
 func _on_NextLevelButton_pressed():
 	GameStats.level += 1
 	var _ignored = get_tree().change_scene("res://src/TestLevel.tscn")
+
+
+func _on_MainMenuButton_pressed():
+	get_tree().change_scene("res://src/screens/MenuScreen.tscn")

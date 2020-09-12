@@ -190,6 +190,38 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="GameOverUI" type="VBoxContainer" parent="UI"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -161.5
+margin_top = -20.0
+margin_right = 161.5
+margin_bottom = 20.0
+custom_constants/separation = 32
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GameOverLabel" type="Label" parent="UI/GameOverUI"]
+margin_right = 323.0
+margin_bottom = 33.0
+custom_fonts/font = ExtResource( 8 )
+text = "[Generated Text]"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MainMenuButton" type="Button" parent="UI/GameOverUI"]
+margin_top = 65.0
+margin_right = 323.0
+margin_bottom = 104.0
+custom_fonts/font = ExtResource( 8 )
+text = "Main Menu"
+
 [node name="Bottomzone" type="StaticBody2D" parent="."]
 
 [node name="BottomWall" type="CollisionShape2D" parent="Bottomzone"]
@@ -199,3 +231,4 @@ shape = SubResource( 1 )
 [connection signal="reset_combo" from="Squirrel" to="." method="_on_Squirrel_reset_combo"]
 [connection signal="timeout" from="GameTimer" to="." method="_on_GameTimer_timeout"]
 [connection signal="pressed" from="UI/LevelCompleteUI/NextLevelButton" to="." method="_on_NextLevelButton_pressed"]
+[connection signal="pressed" from="UI/GameOverUI/MainMenuButton" to="." method="_on_MainMenuButton_pressed"]
