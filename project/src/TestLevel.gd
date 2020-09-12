@@ -2,6 +2,7 @@ extends Control
 
 # The number of seconds a regular game lasts at level 1
 export var base_duration := 20
+export var margin := 20
 
 var _game_started := false
 var _total_nuts := 0
@@ -15,15 +16,36 @@ onready var _game_timer_label := $UI/Top/GameTimerLabel
 onready var _level_complete_ui := $UI/LevelCompleteUI
 onready var _score_label := $UI/Top/ScoreLabel
 onready var _combo_label := $UI/Top/ComboLabel
-
 onready var _game_over_ui := $UI/GameOverUI
 onready var _game_over_label := $UI/GameOverUI/GameOverLabel
+onready var Nut := preload("res://src/Collectable.tscn")
+onready var Feeder := preload("res://src/Birdfeeder.tscn")
 
 func _ready():
+	randomize()
 	# Determine how long we have to complete this level
 	_game_timer.wait_time = base_duration - (GameStats.level-1) * 2
 	
 	Jukebox.play_gameplay_song()
+	var allthenuts = 4+randi()%2
+	var allthefeeders = 1+randi()%2
+	for _x in allthenuts:
+		var nut = Nut.instance()
+		var x = rand_range(margin,600-margin)
+		var y = rand_range(margin,512)
+		var position = Vector2(x,y)
+		print(str(position))
+		nut.position = position
+		_collectables.add_child(nut)
+	for _x in allthefeeders:
+		var feeder = Feeder.instance()
+		var x = rand_range(margin,600-margin)
+		var y = rand_range(margin,512)
+		var position = Vector2(x,y)
+		print(str(position))
+		feeder.position = position
+		_collectables.add_child(feeder)
+	
 	var nuts:Array = _collectables.get_children()
 	var nut_type := randi()%2
 	for item in nuts:
