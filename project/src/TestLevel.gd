@@ -10,7 +10,7 @@ onready var _score_label := $UI/ScoreLabel
 onready var _combo_label := $UI/ComboLabel
 var game_started := false
 var _total_nuts := 0
-var combo := 0
+var combo := 1
 
 func _ready():
 	Jukebox.play_gamplay_song()
@@ -25,7 +25,7 @@ func _ready():
 
 func _process(_delta):
 	_game_timer_label.text = str(ceil(_game_timer.time_left))
-	_score_label.text = "Nuts Eaten: " + str(GameStats.score)
+	_score_label.text = "Score: " + str(GameStats.score)
 	_combo_label.text = "Combo: " + str(combo)
 	if game_started and _total_nuts == 0:
 		_game_over()
@@ -57,18 +57,19 @@ func _input(event):
 
 
 func _collected_nut():
+	GameStats.score += 10*combo
 	combo += 1
-	GameStats.score += combo
+	GameStats.nuts += 1
 	_total_nuts -= 1
 
 
 func _hit_birdfeeder():
-	combo += 1
-	GameStats.score += combo
+	GameStats.score += 10*combo
+	GameStats.nuts += 1
 
 
 func _on_Squirrel_reset_combo():
-	combo = 0
+	combo = 1
 
 
 func _on_NextLevelButton_pressed():
