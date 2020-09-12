@@ -22,4 +22,4 @@ func _start_level():
 
 func _on_GameTimer_timeout():
 	_game_over_label.visible = true
-	_squirrel._velocity = Vector2.ZERO # Replace with function call!
+	_squirrel.stop()

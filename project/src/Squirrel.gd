@@ -7,8 +7,10 @@ export var speed := 10.0
 export var max_speed := 30.0
 export var speedmod := 1.1
 
+
 func _ready():
 	_base_speed = speed
+
 
 func _process(delta):
 	var collision := move_and_collide(_velocity * delta * speed)
@@ -21,5 +23,11 @@ func _process(delta):
 			print(str(speed))
 	update()
 	
+	
 func _draw():
 	draw_circle(Vector2.ZERO, $CollisionShape2D.shape.radius, Color.brown)
+
+
+# Can be called when the game is over and the squirrel should stop in-place.
+func stop():
+	_velocity = Vector2.ZERO
