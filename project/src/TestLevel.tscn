@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://src/Trampoline.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/Squirrel.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/Collectable.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/TestLevel.gd" type="Script" id=4]
 [ext_resource path="res://src/Birdfeeder.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/Grandstander.tres" type="DynamicFont" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 23.6311, 568 )
@@ -71,24 +72,29 @@ one_shot = true
 [node name="GameTimerLabel" type="Label" parent="."]
 margin_right = 40.0
 margin_bottom = 14.0
+custom_fonts/font = ExtResource( 6 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="ScoreLabel" type="Label" parent="."]
-margin_left = 88.0
-margin_top = 536.0
-margin_right = 128.0
-margin_bottom = 550.0
+margin_left = 56.0
+margin_top = 544.0
+margin_right = 98.0
+margin_bottom = 561.0
+custom_fonts/font = ExtResource( 6 )
+text = "Score"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="ComboLabel" type="Label" parent="."]
-margin_left = 80.0
-margin_top = 592.0
-margin_right = 120.0
-margin_bottom = 606.0
+margin_left = 56.0
+margin_top = 576.0
+margin_right = 96.0
+margin_bottom = 593.0
+custom_fonts/font = ExtResource( 6 )
+text = "Combo"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -99,7 +105,8 @@ margin_left = 240.0
 margin_top = 568.0
 margin_right = 380.0
 margin_bottom = 582.0
-text = "THE GAME, OVER IT IS"
+custom_fonts/font = ExtResource( 6 )
+text = "<o> -THE GAME, OVER IT IS"
 __meta__ = {
 "_edit_use_anchors_": false
 }

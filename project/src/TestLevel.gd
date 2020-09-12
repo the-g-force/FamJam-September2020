@@ -25,8 +25,8 @@ func _ready():
 
 func _process(_delta):
 	_game_timer_label.text = str(ceil(_game_timer.time_left))
-	_score_label.text = str(points)
-	_combo_label.text = str(combo)
+	_score_label.text = "Nuts Eaten: " + str(points)
+	_combo_label.text = "Combo: " + str(combo)
 	if game_started and _total_nuts == 0:
 		_game_over()
 	elif not game_started:
