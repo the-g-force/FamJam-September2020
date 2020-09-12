@@ -8,7 +8,8 @@ onready var _game_timer_label := $UI/Top/GameTimerLabel
 onready var _game_over_ui := $UI/GameOverUI
 onready var _score_label := $UI/Top/ScoreLabel
 onready var _combo_label := $UI/Top/ComboLabel
-var game_started := false
+
+var _game_started := false
 var _total_nuts := 0
 var combo := 1
 
@@ -24,12 +25,14 @@ func _ready():
 
 
 func _process(_delta):
-	_game_timer_label.text = str(ceil(_game_timer.time_left))
+	_game_timer_label.text = str(ceil(\
+		_game_timer.time_left if _game_started else _game_timer.wait_time \
+	))
 	_score_label.text = str(GameStats.score)
 	_combo_label.text = str(combo) + "X"
-	if game_started and _total_nuts == 0:
+	if _game_started and _total_nuts == 0:
 		_game_over()
-	elif not game_started:
+	elif not _game_started:
 		_squirrel.global_position.x = _trampoline.global_position.x
 	
 
@@ -50,10 +53,10 @@ func _game_over():
 
 
 func _input(event):
-	if not game_started:
+	if not _game_started:
 		if event is InputEventMouseButton or event is InputEventScreenTouch:
 			_start_level()
-			game_started = true
+			_game_started = true
 
 
 func _collected_nut():
