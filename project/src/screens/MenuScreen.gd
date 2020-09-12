@@ -6,4 +6,5 @@ func _on_PlayButton_pressed():
 
 
 func _on_FullscreenButton_pressed():
+	GameStats.reset()
 	OS.window_fullscreen = not OS.window_fullscreen
