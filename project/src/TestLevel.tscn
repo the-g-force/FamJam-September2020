@@ -72,6 +72,24 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="ScoreLabel" type="Label" parent="."]
+margin_left = 88.0
+margin_top = 536.0
+margin_right = 128.0
+margin_bottom = 550.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ComboLabel" type="Label" parent="."]
+margin_left = 80.0
+margin_top = 592.0
+margin_right = 120.0
+margin_bottom = 606.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="GameOverLabel" type="Label" parent="."]
 visible = false
 margin_left = 240.0
@@ -82,4 +100,5 @@ text = "THE GAME, IT IS OVER"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+[connection signal="reset_combo" from="Squirrel" to="." method="_on_Squirrel_reset_combo"]
 [connection signal="timeout" from="GameTimer" to="." method="_on_GameTimer_timeout"]
