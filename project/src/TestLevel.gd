@@ -3,18 +3,18 @@ extends Control
 # The number of seconds a regular game lasts at level 1
 export var base_duration := 20
 
+var _game_started := false
+var _total_nuts := 0
+var combo := 1
+
 onready var _squirrel := $Squirrel
 onready var _trampoline := $Trampoline
 onready var _collectables := $Collectables
 onready var _game_timer := $GameTimer
 onready var _game_timer_label := $UI/Top/GameTimerLabel
-onready var _game_over_ui := $UI/GameOverUI
+onready var _level_complete_ui := $UI/LevelCompleteUI
 onready var _score_label := $UI/Top/ScoreLabel
 onready var _combo_label := $UI/Top/ComboLabel
-
-var _game_started := false
-var _total_nuts := 0
-var combo := 1
 
 func _ready():
 	# Determine how long we have to complete this level
@@ -54,7 +54,7 @@ func _on_GameTimer_timeout():
 
 func _game_over():
 	_game_timer.set_paused(true)
-	_game_over_ui.visible = true
+	_level_complete_ui.visible = true
 	_squirrel.stop()
 
 
