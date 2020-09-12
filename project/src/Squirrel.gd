@@ -1,11 +1,15 @@
 extends KinematicBody2D
 class_name Squirrel
 
-var _base_speed : float
-var _velocity := Vector2.ZERO
 export var speed := 10.0
 export var max_speed := 30.0
 export var speedmod := 1.1
+
+var _base_speed : float
+var _velocity := Vector2.ZERO
+var _spin := 0.0
+
+
 onready var _hit_wall := $Wall
 onready var _hit_nut := $Nut
 onready var _hit_trampoline := $Trampoline
@@ -18,9 +22,12 @@ func _ready():
 
 
 func _process(delta):
+	rotation += _spin * delta
+	
 	var collision := move_and_collide(_velocity * delta * speed)
 	if collision:
 		_velocity = _velocity.bounce(collision.normal)
+		_spin += rand_range(-1, 1)
 		if collision.collider is Collectable:
 			collision.collider.hit()
 			_hit_nut.play()
@@ -39,6 +46,7 @@ func _process(delta):
 # Can be called when the game is over and the squirrel should stop in-place.
 func stop():
 	_velocity = Vector2.ZERO
+	_spin = 0
 
 func start():
 	_velocity.y = -80
