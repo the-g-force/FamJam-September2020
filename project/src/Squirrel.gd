@@ -2,7 +2,7 @@ extends KinematicBody2D
 class_name Squirrel
 
 var _base_speed : float
-var _velocity := Vector2(1, 80)
+var _velocity := Vector2.ZERO
 export var speed := 10.0
 export var max_speed := 30.0
 export var speedmod := 1.1
@@ -20,7 +20,6 @@ func _process(delta):
 			collision.collider.queue_free()
 		if collision.collider is Trampoline and speed < max_speed:
 			speed *= speedmod
-			print(str(speed))
 	update()
 	
 	
@@ -31,3 +30,6 @@ func _draw():
 # Can be called when the game is over and the squirrel should stop in-place.
 func stop():
 	_velocity = Vector2.ZERO
+
+func start():
+	_velocity.y = -80

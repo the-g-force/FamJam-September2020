@@ -35,7 +35,7 @@ position = Vector2( 126.454, 116.27 )
 position = Vector2( 316.534, 981.032 )
 
 [node name="Squirrel" parent="." instance=ExtResource( 2 )]
-position = Vector2( 361.546, 299.73 )
+position = Vector2( 320, 920 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2( -24.0417, 11.3137 )
@@ -62,7 +62,7 @@ rotation = 1.5708
 shape = SubResource( 1 )
 
 [node name="GameTimer" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 30.0
 one_shot = true
 
 [node name="GameTimerLabel" type="Label" parent="."]
