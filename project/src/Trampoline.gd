@@ -26,7 +26,7 @@ func _process(delta):
 	
 
 
-func _unhandled_input(event):
+func _input(event):
 	if event is InputEventMouseButton:
 		if event.pressed:
 			_is_touch_down = true
