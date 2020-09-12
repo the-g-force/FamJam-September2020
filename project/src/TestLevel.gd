@@ -4,10 +4,10 @@ onready var _squirrel := $Squirrel
 onready var _trampoline := $Trampoline
 onready var _collectables := $Collectables
 onready var _game_timer := $GameTimer
-onready var _game_timer_label := $UI/GameTimerLabel
+onready var _game_timer_label := $UI/Top/GameTimerLabel
 onready var _game_over_ui := $UI/GameOverUI
-onready var _score_label := $UI/ScoreLabel
-onready var _combo_label := $UI/ComboLabel
+onready var _score_label := $UI/Top/ScoreLabel
+onready var _combo_label := $UI/Top/ComboLabel
 var game_started := false
 var _total_nuts := 0
 var combo := 1
@@ -25,8 +25,8 @@ func _ready():
 
 func _process(_delta):
 	_game_timer_label.text = str(ceil(_game_timer.time_left))
-	_score_label.text = "Score: " + str(GameStats.score)
-	_combo_label.text = "Combo: " + str(combo)
+	_score_label.text = str(GameStats.score)
+	_combo_label.text = str(combo) + "X"
 	if game_started and _total_nuts == 0:
 		_game_over()
 	elif not game_started:
