@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://src/Trampoline.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/Squirrel.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/Collectable.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/TestLevel.gd" type="Script" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 23.6311, 568 )
@@ -10,6 +11,7 @@ extents = Vector2( 23.6311, 568 )
 [node name="TestLevel" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -58,3 +60,26 @@ shape = SubResource( 1 )
 position = Vector2( 288.042, 1036.69 )
 rotation = 1.5708
 shape = SubResource( 1 )
+
+[node name="GameTimer" type="Timer" parent="."]
+wait_time = 30.0
+one_shot = true
+
+[node name="GameTimerLabel" type="Label" parent="."]
+margin_right = 40.0
+margin_bottom = 14.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GameOverLabel" type="Label" parent="."]
+visible = false
+margin_left = 240.0
+margin_top = 568.0
+margin_right = 380.0
+margin_bottom = 582.0
+text = "THE GAME, IT IS OVER"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="timeout" from="GameTimer" to="." method="_on_GameTimer_timeout"]
