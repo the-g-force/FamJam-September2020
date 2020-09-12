@@ -9,6 +9,7 @@ onready var _score_label := $ScoreLabel
 onready var _combo_label := $ComboLabel
 var game_started := false
 var points := 0
+var _total_nuts := 0
 var combo := 0
 
 func _ready():
@@ -16,12 +17,15 @@ func _ready():
 	for item in nuts:
 		if item is Collectable:
 			item.connect("hit", self, "_collected_nut")
+			_total_nuts += 1
 
 
 func _process(_delta):
 	_game_timer_label.text = str(ceil(_game_timer.time_left))
 	_score_label.text = str(points)
 	_combo_label.text = str(combo)
+	if game_started and _total_nuts == 0:
+		_game_over()
 	
 
 # Start the level (launch squirrel, start timer, etc)
@@ -31,6 +35,10 @@ func _start_level():
 
 
 func _on_GameTimer_timeout():
+	_game_over()
+
+
+func _game_over():
 	_game_over_label.visible = true
 	_squirrel.stop()
 
@@ -45,7 +53,7 @@ func _input(event):
 func _collected_nut():
 	combo += 1
 	points += combo
-	
+	_total_nuts -= 1
 
 func _on_Squirrel_reset_combo():
 	combo = 0
