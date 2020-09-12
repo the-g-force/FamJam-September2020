@@ -17,8 +17,17 @@ __meta__ = {
 [node name="Collectables" type="Node2D" parent="."]
 position = Vector2( 361.546, 299.73 )
 
-[node name="StaticBody2D" parent="Collectables" instance=ExtResource( 3 )]
-position = Vector2( -209.546, 28.2696 )
+[node name="Collectable" parent="Collectables" instance=ExtResource( 3 )]
+position = Vector2( -249.546, -147.73 )
+
+[node name="Collectable2" parent="Collectables" instance=ExtResource( 3 )]
+position = Vector2( -9.54572, -115.73 )
+
+[node name="Collectable3" parent="Collectables" instance=ExtResource( 3 )]
+position = Vector2( -209.546, 92.2696 )
+
+[node name="Collectable4" parent="Collectables" instance=ExtResource( 3 )]
+position = Vector2( 126.454, 116.27 )
 
 [node name="Trampoline" parent="." instance=ExtResource( 1 )]
 position = Vector2( 316.534, 981.032 )
@@ -32,20 +41,20 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="LeftWall" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2( 0.041687, 516.686 )
 shape = SubResource( 1 )
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="RightWall" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2( 648.042, 508.686 )
 shape = SubResource( 1 )
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="TopWall" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2( 312.042, -35.3137 )
 rotation = 1.5708
 shape = SubResource( 1 )
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="BottomWall" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2( 288.042, 1036.69 )
 rotation = 1.5708
 shape = SubResource( 1 )

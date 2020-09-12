@@ -10,7 +10,5 @@ func _process(delta):
 			collision.collider.queue_free()
 	update()
 	
-	
-
 func _draw():
 	draw_circle(Vector2.ZERO, $CollisionShape2D.shape.radius, Color.brown)
