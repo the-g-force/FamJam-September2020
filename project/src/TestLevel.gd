@@ -97,4 +97,4 @@ func _on_NextLevelButton_pressed():
 
 
 func _on_MainMenuButton_pressed():
-	get_tree().change_scene("res://src/screens/MenuScreen.tscn")
+	var _ignored = get_tree().change_scene("res://src/screens/MenuScreen.tscn")
