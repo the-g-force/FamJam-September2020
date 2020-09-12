@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://src/Trampoline.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/Squirrel.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://src/TestLevel.gd" type="Script" id=4]
 [ext_resource path="res://src/Birdfeeder.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/Grandstander.tres" type="DynamicFont" id=6]
+[ext_resource path="res://assets/grass.png" type="Texture" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 23.6311, 568 )
@@ -110,5 +111,10 @@ text = "<o> -THE GAME, OVER IT IS"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="grass" type="Sprite" parent="."]
+position = Vector2( 296, 1024 )
+z_index = -2
+texture = ExtResource( 7 )
 [connection signal="reset_combo" from="Squirrel" to="." method="_on_Squirrel_reset_combo"]
 [connection signal="timeout" from="GameTimer" to="." method="_on_GameTimer_timeout"]
