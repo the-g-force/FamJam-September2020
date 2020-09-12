@@ -1,4 +1,5 @@
 extends KinematicBody2D
+class_name Trampoline
 
 # Number of pixels around touch point that count as being there
 export var touch_tolerance := 10.0

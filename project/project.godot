@@ -13,9 +13,21 @@ _global_script_classes=[ {
 "class": "Collectable",
 "language": "GDScript",
 "path": "res://src/Collectable.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "Squirrel",
+"language": "GDScript",
+"path": "res://src/Squirrel.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "Trampoline",
+"language": "GDScript",
+"path": "res://src/Trampoline.gd"
 } ]
 _global_script_class_icons={
-"Collectable": ""
+"Collectable": "",
+"Squirrel": "",
+"Trampoline": ""
 }
 
 [application]
