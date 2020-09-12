@@ -38,7 +38,8 @@ _global_script_class_icons={
 
 [application]
 
-config/name="FamJam-September2020"
+config/name="The Amazing Squirrelini Brothers Prepare for Winter"
+config/description="FamJam September 2020"
 run/main_scene="res://src/screens/LaunchScreen.tscn"
 config/icon="res://icon.png"
 
