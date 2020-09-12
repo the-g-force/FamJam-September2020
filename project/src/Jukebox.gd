@@ -12,7 +12,8 @@ func play_menu_song():
 	
 
 func play_gameplay_song():
-	stream = _gameplay_song
+	if stream != _gameplay_song:
+		stream = _gameplay_song
 	if not playing:
 		play()
 
