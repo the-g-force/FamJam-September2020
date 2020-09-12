@@ -49,4 +49,6 @@ func stop():
 	_spin = 0
 
 func start():
-	_velocity.y = -80
+	var max_angle = deg2rad(30)
+	var angle = rand_range(-max_angle, max_angle)
+	_velocity = Vector2(0,-80).rotated(angle)
