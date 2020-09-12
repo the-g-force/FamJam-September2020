@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/bird_feeder.wav-27f575c476f0a8b839f24fb0dedec636.sample"
+
+[deps]
+
+source_file="res://assets/sounds/bird_feeder.wav"
+dest_files=[ "res://.import/bird_feeder.wav-27f575c476f0a8b839f24fb0dedec636.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

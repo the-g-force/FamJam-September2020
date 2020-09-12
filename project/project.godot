@@ -10,6 +10,11 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "StaticBody2D",
+"class": "Birdfeeder",
+"language": "GDScript",
+"path": "res://src/Birdfeeder.gd"
+}, {
+"base": "StaticBody2D",
 "class": "Collectable",
 "language": "GDScript",
 "path": "res://src/Collectable.gd"
@@ -25,6 +30,7 @@ _global_script_classes=[ {
 "path": "res://src/Trampoline.gd"
 } ]
 _global_script_class_icons={
+"Birdfeeder": "",
 "Collectable": "",
 "Squirrel": "",
 "Trampoline": ""

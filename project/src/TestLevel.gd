@@ -19,6 +19,8 @@ func _ready():
 		if item is Collectable:
 			item.connect("hit", self, "_collected_nut")
 			_total_nuts += 1
+		elif item is Birdfeeder:
+			item.connect("hit", self, "_hit_birdfeeder")
 
 
 func _process(_delta):
@@ -57,6 +59,12 @@ func _collected_nut():
 	combo += 1
 	points += combo
 	_total_nuts -= 1
+
+
+func _hit_birdfeeder():
+	combo += 1
+	points += combo
+
 
 func _on_Squirrel_reset_combo():
 	combo = 0
