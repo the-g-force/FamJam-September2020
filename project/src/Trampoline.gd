@@ -37,8 +37,3 @@ func _input(event):
 	elif _is_touch_down and event is InputEventMouseMotion:
 		_touch_position = event.position
 
-
-func _draw():
-	var extents = $CollisionShape2D.shape.extents
-	draw_rect(Rect2(-extents.x,-extents.y, extents.x*2, extents.y*2), Color.antiquewhite)
-

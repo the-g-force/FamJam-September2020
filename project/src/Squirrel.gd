@@ -34,10 +34,6 @@ func _process(delta):
 		else:
 			_hit_wall.play()
 	update()
-	
-	
-func _draw():
-	draw_circle(Vector2.ZERO, $CollisionShape2D.shape.radius, Color.brown)
 
 
 # Can be called when the game is over and the squirrel should stop in-place.

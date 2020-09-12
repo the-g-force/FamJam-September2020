@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://src/Squirrel.gd" type="Script" id=1]
 [ext_resource path="res://assets/sounds/bump_wall.wav" type="AudioStream" id=2]
 [ext_resource path="res://assets/sounds/nut.wav" type="AudioStream" id=3]
 [ext_resource path="res://assets/sounds/trampoline.wav" type="AudioStream" id=4]
 [ext_resource path="res://assets/sounds/bird_feeder.wav" type="AudioStream" id=5]
+[ext_resource path="res://assets/squirrel-ball.png" type="Texture" id=6]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 41.7538
@@ -26,3 +27,6 @@ stream = ExtResource( 4 )
 
 [node name="Birdfeeder" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 5 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 6 )
