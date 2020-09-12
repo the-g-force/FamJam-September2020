@@ -34,7 +34,6 @@ func _ready():
 		var x = rand_range(margin,600-margin)
 		var y = rand_range(margin,512)
 		var position = Vector2(x,y)
-		print(str(position))
 		nut.position = position
 		_collectables.add_child(nut)
 	for _x in allthefeeders:
@@ -42,7 +41,6 @@ func _ready():
 		var x = rand_range(margin,600-margin)
 		var y = rand_range(margin,512)
 		var position = Vector2(x,y)
-		print(str(position))
 		feeder.position = position
 		_collectables.add_child(feeder)
 	
