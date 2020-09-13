@@ -32,10 +32,10 @@ __meta__ = {
 [node name="Collectables" type="Node2D" parent="."]
 
 [node name="Trampoline" parent="." instance=ExtResource( 1 )]
-position = Vector2( 316.534, 981.032 )
+position = Vector2( 316.534, 917.032 )
 
 [node name="Squirrel" parent="." instance=ExtResource( 2 )]
-position = Vector2( 320, 920 )
+position = Vector2( 320, 856 )
 
 [node name="WorldBounds" type="StaticBody2D" parent="."]
 position = Vector2( -24.0417, 11.3137 )
@@ -61,7 +61,7 @@ wait_time = 30.0
 one_shot = true
 
 [node name="Grass" type="Sprite" parent="."]
-position = Vector2( 296, 1024 )
+position = Vector2( 296, 984 )
 z_index = -1
 texture = ExtResource( 7 )
 
@@ -220,11 +220,11 @@ text = "Main Menu"
 [node name="Bottomzone" type="StaticBody2D" parent="."]
 
 [node name="BottomWall" type="CollisionShape2D" parent="Bottomzone"]
-position = Vector2( 264, 1048 )
+position = Vector2( 264, 976 )
 rotation = 1.5708
 shape = SubResource( 1 )
 
-[node name="Sprite" type="Sprite" parent="."]
+[node name="Background" type="Sprite" parent="."]
 z_index = -2
 texture = ExtResource( 6 )
 centered = false
