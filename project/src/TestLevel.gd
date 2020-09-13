@@ -78,14 +78,17 @@ func _on_GameTimer_timeout():
 
 
 func _handle_level_clear():
+	_stop_gameplay()
+	_level_complete_ui.visible = true
+
+
+func _stop_gameplay():
 	_game_timer.set_paused(true)
 	_squirrel.stop()
-	_level_complete_ui.visible = true	
-
+	_trampoline.enabled = false
 
 func _game_over():
-	_game_timer.set_paused(true)
-	_squirrel.stop()
+	_stop_gameplay()
 	_game_over_label.text = "Winter is here!\n\nScore: %d" % GameStats.score
 	_game_over_ui.visible = true
 
